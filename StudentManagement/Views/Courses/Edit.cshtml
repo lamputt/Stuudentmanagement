@@ -1,0 +1,88 @@
+﻿@model StudentManagement.Models.Courses
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Edit Course</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a style="color: green;" asp-action="Index" asp-controller="Courses">Course</a></li>
+                        <li class="breadcrumb-item active">Form Edit</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h5 class="card-title">
+                                Edit Course
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <form asp-action="Edit">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-6">
+                                        <div class="form-group mb-3">
+                                            <label>Name</label>
+                                            <input asp-for="Name" class="form-control" />
+                                            <span asp-validation-for="Name" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group mb-3">
+                                            <label>Teacher</label>
+                                            <input asp-for="Name_teacher" class="form-control" />
+                                            <span asp-validation-for="Name_teacher" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6">
+                                        <div class="form-group mb-3">
+                                            <label>Department</label>
+                                            <select asp-for="Department_id" class="form-control" asp-items="ViewBag.Department_id">
+                                                <option value="">Select Department</option>
+                                            </select>
+                                            <span asp-validation-for="Department_id" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group mb-3">
+                                            <label>Status</label>
+                                            <select asp-for="Status" class="form-control">
+                                                <option value="1">Active</option>
+                                                <option value="0">Deactive</option>
+                                            </select>
+                                            <span asp-validation-for="Status" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-6">
+                                        <div class="form-group">
+                                            <input type="submit" value="Save" class="btn btn-primary" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,85 @@
+﻿@model StudentManagement.Models.Departments
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Edit Department</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a style="color: green;" asp-action="Index">Department</a></li>
+                        <li class="breadcrumb-item active">Form Edit</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h5 class="card-title">Edit Department</h5>
+                        </div>
+                        <div class="card-body">
+                            <form asp-action="Edit">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label asp-for="Name" class="control-label">Name</label>
+                                            <input asp-for="Name" class="form-control" />
+                                            <span asp-validation-for="Name" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Logo" class="control-label">Logo</label>
+                                            <input asp-for="Logo" class="form-control" />
+                                            <span asp-validation-for="Logo" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Leader" class="control-label">Leader</label>
+                                            <input asp-for="Leader" class="form-control" />
+                                            <span asp-validation-for="Leader" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label asp-for="Begining_date" class="control-label">Beginning Date</label>
+                                            <input asp-for="Begining_date" class="form-control" />
+                                            <span asp-validation-for="Begining_date" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Status" class="control-label">Status</label>
+                                            <select asp-for="Status" class="form-control">
+                                                <option value="1">Active</option>
+                                                <option value="0">Deactive</option>
+                                            </select>
+                                            <span asp-validation-for="Status" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Save</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

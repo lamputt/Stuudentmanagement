@@ -1,0 +1,74 @@
+﻿@model StudentManagement.Models.Group_student
+
+@{
+    ViewData["Title"] = "Group Student Details";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Group Student Details</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a style="color: green;" href="#">Group Students</a></li>
+                        <li class="breadcrumb-item active">Details</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h5 class="card-title">Group Student Details</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label>Account ID</label>
+                                        <p class="form-control-static">@Model.Accounts?.Users?.Full_name</p>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label>Group ID</label>
+                                        <p class="form-control-static">@Model.Groups?.Name</p>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label>Course ID</label>
+                                        <p class="form-control-static">@Model.Courses?.Name</p>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label>Absent</label>
+                                        <p class="form-control-static">@Model.Absent</p>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label>Present</label>
+                                        <p class="form-control-static">@Model.Present</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <a href="@Url.Action("Edit", new { id = Model.Id })" class="btn btn-primary">Edit</a>
+                                        <a href="@Url.Action("Index")" class="btn btn-secondary">Back to List</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>

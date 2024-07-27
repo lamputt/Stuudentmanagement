@@ -1,0 +1,70 @@
+﻿@model StudentManagement.Models.Group_student
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Delete Group Student</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a asp-action="Index">Group Students</a></li>
+                        <li class="breadcrumb-item active">Delete</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h3>Are you sure you want to delete this group student?</h3>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-sm-3 font-weight-bold">Student ID:</div>
+                        <div class="col-sm-9">@Html.DisplayFor(model => model.Accounts.Users.Full_name)</div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-sm-3 font-weight-bold">Group ID:</div>
+                        <div class="col-sm-9">@Html.DisplayFor(model => model.Groups.Name)</div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-sm-3 font-weight-bold">Course ID:</div>
+                        <div class="col-sm-9">@Html.DisplayFor(model => model.Courses.Name)</div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-sm-3 font-weight-bold">Absent:</div>
+                        <div class="col-sm-9">@Html.DisplayFor(model => model.Absent)</div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-sm-3 font-weight-bold">Present:</div>
+                        <div class="col-sm-9">@Html.DisplayFor(model => model.Present)</div>
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="col-sm-12">
+                            <form asp-action="Delete">
+                                <input type="hidden" asp-for="Id" />
+                                <button type="submit" class="btn btn-danger mr-2">Delete</button>
+                                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

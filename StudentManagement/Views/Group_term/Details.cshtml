@@ -1,0 +1,30 @@
+﻿@model StudentManagement.Models.Group_term
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Group_term</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Terms)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Terms.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Groups)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Groups.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,93 @@
+﻿@model IEnumerable<StudentManagement.Models.Groups>
+
+@{
+    ViewData["Title"] = "Groups";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Groups</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a style="color: green;" asp-action="Index" asp-controller="Groups">Home</a></li>
+                        <li class="breadcrumb-item active">List view</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <a class="btn btn-primary" asp-action="Create"> Create New Group</a>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group my-3">
+                                <form method="get" action="@Url.Action("Index")">
+                                    <input style="width:55%;" type="text" name="searchString" placeholder="Search by group name, department name, term name or teacher name" value="@Context.Request.Query["searchString"]" />
+                                    <button type="submit" class="btn btn-primary btn-sm mb-0"> Search </button>
+                                    <a class="btn btn-info btn-sm" asp-action="Index"> Back to list</a>
+                                </form>
+                            </div>
+                        </div>
+                        @if (TempData["Message"] != null)
+                        {
+                            <div class="my-3 text_success">
+                                <p class="text-success">@TempData["Message"]</p>
+                            </div>
+                        }
+                    </div>
+
+                    <table class="mt-3 table table-bordered table-striped">
+                        <thead class="table-primary">
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.Name)</th>
+                                <th>@Html.DisplayNameFor(model => model.Student_number)</th>
+                                <th>@Html.DisplayNameFor(model => model.Status)</th>
+                                <th>Department Name</th>
+                                <th>Term Name</th>
+                                <th>Teacher Name</th>
+                                <th width="10%" class="text-center" colspan="3">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Student_number)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.StatusText)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Departments.Name)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Terms.Name)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Accounts.Users.Full_name)</td>
+                                    <td>
+                                        <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@item.Id"> Edit</a>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-primary btn-sm" asp-action="Details" asp-route-id="@item.Id"> Details</a>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-danger btn-sm btn-outline-secondary" asp-action="Delete" asp-route-id="@item.Id"> Delete</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <!-- Pagination -->
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
